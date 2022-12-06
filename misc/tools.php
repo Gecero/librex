@@ -25,6 +25,23 @@
                     $frontend .= "/u";
             }
 
+            // Replace *.fandom.com/* with [breezewiki instance]/$1/$2
+            else if($original == "fandom.com")
+            {
+                // Determine 3rd level domain, which indicates the wiki
+                $wiki = substr($url,
+                    strpos($url, "://")+3,
+                    strpos($url, ".fandom") - strpos($url, "://") - 3);
+
+                // Handle (yet) unsupported special sites
+                if($wiki == null || $wiki == "www") // Fandom main site, abort.
+                    return $url;
+                else if(strpos($url, "/f/")) // Post site, abort.
+                    return $url;
+                else
+                    $frontend .= "/" . $wiki;
+            }
+
             if (empty(trim($frontend)))
                 return $url;
 
@@ -49,7 +66,8 @@
             "tiktok.com" => "proxitok",
             "wikipedia.org" => "wikiless",
             "quora.com" => "quetre",
-            "imdb.com" => "libremdb"
+            "imdb.com" => "libremdb",
+            "fandom.com" => "breezewiki"
         );
 
         foreach($frontends as $original => $frontend)

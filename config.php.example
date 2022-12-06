@@ -24,6 +24,7 @@
         "wikiless" => "", // wikipedia
         "quetre" => "", // quora
         "libremdb" => "", // imdb
+        "breezewiki" => "", // fandom wikis
 
         /*
             To send requests trough a proxy uncomment CURLOPT_PROXY and CURLOPT_PROXYTYPE:
