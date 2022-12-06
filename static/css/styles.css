@@ -253,31 +253,26 @@ a:hover,
 .next-page-button-wrapper .page {
     display: inline;
 }
-
+    
 .image-result-container {
-    display: flex;
-    flex-wrap: wrap;
-    grid-gap: 1.5rem;
-    justify-items: center;
-    margin-left: 9%;
-    margin-right: 9%;
-    padding: 0;
-    margin-bottom: 50px;
+    column-count: auto;
+    column-width: 20rem;
+    margin: 0px 9% 50px;
+}
+
+.image-result-container img {
+    min-width: 200px;
+    min-height: 200px;
+    width: 100%;
+    object-fit: cover;
+    background: var(--footer-bg);
+    background-image: url("/static/images/librex.png");
 }
 
 a[title] {
     flex-grow: 1;
     height: 12rem;
 }
-
-.image-result-container img {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    vertical-align: bottom;
-}
-
 
 .git-container {
     right: 0;
@@ -339,6 +334,7 @@ a[title] {
 
 /* mobile view */
 @media only screen and (max-width: 750px) {
+/
     p {
         font-size: 16px;
     }
@@ -356,20 +352,6 @@ a[title] {
         margin: 30px 0px 0px 0px;
         width: 80%;
     }
-
-    .image-result-container {
-        display: unset;
-        margin: 0;
-        padding: 0;
-    }
-
-    .image-result-container img {
-        margin: 0 5% 5% 5%;
-        padding: 0;
-        width: 90%;
-        border: none;
-    }
-
     .git-container {
         display: none;
     }
