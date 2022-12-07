@@ -122,21 +122,24 @@
         if (isset($_COOKIE["disable_special"]) || isset($_REQUEST["disable_special"]))
             return 0;
 
-         $query_lower = strtolower($query);
-         $split_query = explode(" ", $query);
+        $query_lower = strtolower($query);
+        $split_query = explode(" ", $query);
 
-         if (strpos($query_lower, "to") && count($split_query) >= 4) // currency
-         {
+        if (strpos($query_lower, "tor") !== false) {
+            return 6;
+        }
+        else if (strpos($query_lower, "to") && count($split_query) >= 4) // currency
+        {
             $amount_to_convert = floatval($split_query[0]);
             if ($amount_to_convert != 0)
                 return 1;
-         }
-         else if (strpos($query_lower, "mean") && count($split_query) >= 2) // definition
-         {
+        }
+        else if (strpos($query_lower, "mean") && count($split_query) >= 2) // definition
+        {
              return 2;
-         }
-         else if (strpos($query_lower, "my") !== false)
-         {
+        }
+        else if (strpos($query_lower, "my") !== false)
+        {
             if (strpos($query_lower, "ip"))
             {
                 return 3;
@@ -145,19 +148,15 @@
             {
                 return 4;
             }
-         }
-         else if (strpos($query_lower, "weather") !== false)
-         {
+        }
+        else if (strpos($query_lower, "weather") !== false)
+        {
                 return 5;
-         }
-         else if ($query_lower == "tor")
-         {
-                return 6;
-         }
-         else if (3 > count(explode(" ", $query))) // wikipedia
-         {
+        }
+        else if (3 > count(explode(" ", $query))) // wikipedia
+        {
              return 7;
-         }
+        }
 
         return 0;
     }
