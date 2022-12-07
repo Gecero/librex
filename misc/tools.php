@@ -67,7 +67,8 @@
             "wikipedia.org" => "wikiless",
             "quora.com" => "quetre",
             "imdb.com" => "libremdb",
-            "fandom.com" => "breezewiki"
+            "fandom.com" => "breezewiki",
+            "imgur.com" => "rimgo"
         );
 
         foreach($frontends as $original => $frontend)

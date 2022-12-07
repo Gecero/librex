@@ -88,7 +88,8 @@
                                 "wikiless" => array("https://codeberg.org/orenom/wikiless", "Wikipedia"),
                                 "quetre" => array("https://github.com/zyachel/quetre", "Quora"),
                                 "libremdb" => array("https://github.com/zyachel/libremdb", "IMDb"),
-                                "breezewiki" => array("https://docs.breezewiki.com/Links.html", "Fandom Wikis")
+								"breezewiki" => array("https://docs.breezewiki.com/Links.html", "Fandom Wikis"),
+								"rimgo" => array("https://codeberg.org/video-prize-ranch/rimgo", "Imgur")
                             );
                         
                            foreach($frontends as $frontend => $info)
